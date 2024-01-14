@@ -1,15 +1,26 @@
 var express = require('express');
-var usersRouter = require('./api/user/user.route.');
+var mongoose = require('mongoose');
+require ('dotenv').config();
 
+mongoose.connect(process.env.mongodb).then(()=>{
+  console.log("db connected");
+}).catch((error)=>{
+  console.log(error);
+  console.log('error connecting to mongo');
+});
+
+var userRouter = require('./api/user/user.route');
 var app = express();
- 
+ app.use(express.json());
   app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', '*');
     next();
   })
+  
+
 app.use(express.json());
-app.use('/users', usersRouter);
+app.use('/user', userRouter);
 
 app.listen(3000, () => {
   console.log('listening on http://localhost:3000');

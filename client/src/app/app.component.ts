@@ -13,8 +13,8 @@ import { HttpClient , HttpClientModule} from '@angular/common/http';
 export class AppComponent {
   constructor(private http: HttpClient){
   }
-  getUsers(){
-    this .http.get('http://localhost:3000/users').subscribe({
+  getUser(){
+    this .http.get('http://localhost:3000/user').subscribe({
       next: (res) => {
         console.log(res);
       },
