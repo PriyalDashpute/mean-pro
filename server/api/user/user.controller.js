@@ -2,11 +2,11 @@
 
 const UserModel = require('./user.model');
 
-exports.getUser = (req, res, next) => {
+exports.getUsers = (req, res, next) => {
 
-    UserModel.find().then((user) => {
+    UserModel.find().then((users) => {
         res.status(200).json({
-            user: user,
+            users: users,
         });
     }).catch((err) => {
         res.status(500).json({
