@@ -55,4 +55,12 @@ export class UsersComponent {
       },
     });
   }
+  // updateUser(id: any) {
+  //   this.http.put('http://localhost:3000/users/' + id).subscribe({
+  //     next: (res: any) => {
+  //       this.getUsers();
+  //     },
+  //     error: (err: any) => {
+  //     },
+  //   });
 }

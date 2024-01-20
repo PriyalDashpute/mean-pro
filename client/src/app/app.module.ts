@@ -7,11 +7,12 @@ import { RouterOutlet } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserModule } from "@angular/platform-browser";
-
+import { AddUserComponent } from "./add-user/add-user.component";
 @NgModule({
     declarations: [
         AppComponent,
         UsersComponent,
+        AddUserComponent,
     ],
     imports: [
         CommonModule,
