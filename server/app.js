@@ -8,8 +8,8 @@ mongoose.connect(process.env.mongodb).then(()=>{
   console.log(error);
   console.log('error connecting to mongo');
 });
-
-var userRouter = require('./api/user/user.route');
+var UserRouter = require('./api/user/user.route');
+var EmployeeRouter = require('./api/Employee/Employee.route');
 var app = express();
  app.use(express.json());
   app.use((req, res, next) => {
@@ -21,7 +21,8 @@ var app = express();
   
 
 app.use(express.json());
-app.use('/users', userRouter);
+app.use('/Employee', EmployeeRouter);
+app.use('/user',UserRouter);
 
 app.listen(3000, () => {
   console.log('listening on http://localhost:3000');

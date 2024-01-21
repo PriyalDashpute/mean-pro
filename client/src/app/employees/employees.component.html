@@ -1,0 +1,17 @@
+<!--
+first Name : <input [(ngModel)]="newUser.firstName" type="text"><br>
+last Name : <input [(ngModel)]="newUser.lastName" type="text"><br>
+
+
+<button (click)="createUser()"class="btn btn-secondary">submit</button>
+-->
+<button (click)="getEmployees()"class="btn btn-primary">Get Employees</button>
+<br>
+<button (click)="goToAddEmployees()" class="btn btn-secondary">Go to Add Employee</button>
+<ul>
+    @for (employee of employees; track employee._id){
+        <li> {{employee.firstName}}{{employee.lastName}}
+            <button (click)="deleteEmployee(employee._id)">delete</button>     
+        </li>
+    }
+</ul>
