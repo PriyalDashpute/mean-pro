@@ -7,13 +7,16 @@ import { RouterOutlet } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserModule } from "@angular/platform-browser";
-
+import { RegisterComponent } from "./register/register.component";
+import { LoginComponent } from "./login/login.component";
 import { AddEmployeesComponent } from "./add-employee/add-employee.component";
 @NgModule({
     declarations: [
         AppComponent,
         EmployeesComponent,
         AddEmployeesComponent,
+        RegisterComponent,
+        LoginComponent
     ],
     imports: [
         CommonModule,
@@ -21,6 +24,7 @@ import { AddEmployeesComponent } from "./add-employee/add-employee.component";
         AppRoutingModule,
         HttpClientModule, 
         FormsModule,
+        
     ],
     bootstrap: [AppComponent]
 })

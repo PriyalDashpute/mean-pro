@@ -2,14 +2,15 @@ const UserModel = require ('./user.model');
 
 exports.registerUser = async (req, res, next) => {
     try {
-        console.log('here in reg user');
+        // console.log('here in reg user');
         const existingsUser = await UserModel.findOne({ email: req.body.email });
+        console.log(existingsUser);
         if (existingsUser) {
             return res.status(400).json({
                 message: 'User already registered'
             });
         } else {
-            const newUser = new UserModel({ email: req.body.email, password: req.body.password });
+            const newUser = await new UserModel({ email: req.body.email, password: req.body.password });
             const result = await newUser.save();
             res.status(201).json({ message: 'User successfully registered' });
         }

@@ -58,5 +58,11 @@ export class EmployeesComponent {
   goToAddEmployees() {
     this.router.navigate(['/add-employee']);
   }
+   gotoregister() {
+    this.router.navigate(['/register']);
+}
+gotologin() {
+  this.router.navigate(['/login']);
 }
 
+}
