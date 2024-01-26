@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  newUser ={
+  existingsUser ={
     email:'',
     password:''
   }
@@ -18,11 +18,11 @@ constructor(
 ){}
 
 login(){
-  this.http.post('http://localhost:3000/user/login', this.newUser).subscribe({
+  this.http.post('http://localhost:3000/user/login', this.existingsUser).subscribe({
   next: (res: any) => {
 
     this.router.navigate(['']);
-    this.newUser.password = '';
+    this.existingsUser.password = '';
   },
   error: (err:any) => {
     console.log(err);
