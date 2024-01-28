@@ -1,4 +1,9 @@
 First Name : <input [(ngModel)]="newEmployee.firstName" type="text" /><br />
 Last Name : <input [(ngModel)]="newEmployee.lastName" type="text" /><br />
+email : <input [(ngModel)]="newEmployee.email" type="text"/><br />
+mNumber : <input [(ngModel)]="newEmployee.mNumber" type="text"/><br />
+gender : <input [(ngModel)]="newEmployee.gender" type="radio" value="male"/> Male
+<input [(ngModel)]="newEmployee.gender" type="radio" value="female"/> Female<br />
+city : <input [(ngModel)]="newEmployee.city" type="text"/><br />
 <button (click)="createEmployee()">Submit</button><br/>
 <button (click)="goToViewEmployees()">Go to view Employee</button>

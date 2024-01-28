@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const EmployeeController = require('./employee.controller')
+const EmployeeController = require("./employee.controller.js");
 
 router.get('/', EmployeeController.getEmployee);
 router.post('/', EmployeeController.createEmployee);

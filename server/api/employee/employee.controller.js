@@ -19,7 +19,12 @@ exports.getEmployee = (req, res, next) => {
 exports.createEmployee = (req, res, next) => {
     const newEmployee = new EmployeeModel({ 
         firstName: req.body.firstName,
-        lastName: req.body.lastName });
+        lastName: req.body.lastName ,
+        email:req.body.email,
+        mNumber:req.body.mNumber,
+        gender:req.body.gender,
+        city:req.body.city,
+});
     newEmployee
     .save()
     .then((result) => { 
