@@ -37,7 +37,13 @@ exports.createEmployee = (req, res, next) => {
 
 exports.getEmployeeById = (req, res, next) => {
     EmployeeModel.findById(req.params.id).then((result) => {
-        res.status(200).json(result);
+       
+        if(result){
+            res.status(200).json(result);
+        }
+        else{
+            res.status(500).json({msg:"user not dound"});
+        }
     }).catch(err => {
         res.status(404).json({
             error: err
@@ -62,7 +68,7 @@ exports.deleteEmployeeById = (req, res, next) => {
 
 
 exports.updateEmployee =(req,res,next) =>{
-    EmployeeModel.findByIdAndUpdate(req.params.id).then((result)=>{
+    EmployeeModel.findByIdAndUpdate(req.params.id, req.body).then((result)=>{
         res.status(200).json({ msg: 'Employee updated', data: result });
     })
     .catch(err =>{

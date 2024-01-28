@@ -10,13 +10,15 @@ import { BrowserModule } from "@angular/platform-browser";
 import { RegisterComponent } from "./register/register.component";
 import { LoginComponent } from "./login/login.component";
 import { AddEmployeesComponent } from "./add-employee/add-employee.component";
+import { EditEmployeeComponent } from "./edit-employee/edit-employee.component";
 @NgModule({
     declarations: [
         AppComponent,
         EmployeesComponent,
         AddEmployeesComponent,
         RegisterComponent,
-        LoginComponent
+        LoginComponent,
+        EditEmployeeComponent
     ],
     imports: [
         CommonModule,

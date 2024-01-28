@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class EmployeesComponent implements OnInit {
 
   employees: any = [];
-
+  isLoading = false;
   newEmployee = {
     firstName: '',
     lastName: '',
@@ -26,13 +26,16 @@ export class EmployeesComponent implements OnInit {
   }
 
   getEmployees() {
+    this.isLoading = true;
     this.http.get('http://localhost:3000/employee').subscribe({
       next: (res: any) => {
-        console.log(res);
+        this.isLoading = false;
+        
         this.employees = res.Employees;
       },
       error: (err) => {
-        console.log(err);
+        this.isLoading = false;
+        
       }
     })
   }
@@ -40,13 +43,15 @@ export class EmployeesComponent implements OnInit {
   createEmployee() {
     this.http.post('http://localhost:3000/employee', this.newEmployee).subscribe({
       next: (res: any) => {
-        console.log(res);
+        
+        
         this.newEmployee.firstName = '';
         this.newEmployee.lastName = '';
         this.getEmployees();
       },
       error: (err) => {
-        console.log(err);
+        
+        
       },
     })
   }
@@ -61,7 +66,7 @@ export class EmployeesComponent implements OnInit {
     });
   }
   goToAddEmployees() {
-    this.router.navigate(['/add-employees']);
+    this.router.navigate(['/add-employee']);
   }
    gotoregister() {
     this.router.navigate(['/register']);
