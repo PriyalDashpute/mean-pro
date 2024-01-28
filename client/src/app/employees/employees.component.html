@@ -1,27 +1,31 @@
-<!--
-first Name : <input [(ngModel)]="newUser.firstName" type="text"><br>
-last Name : <input [(ngModel)]="newUser.lastName" type="text"><br>
 
+<div class="m-4">
+  <button class="float-end btn btn-primary" (click)="goToAddEmployees()">
+    Go to Add employees
+  </button>
 
-<button (click)="createUser()"class="btn btn-secondary">submit</button>
--->
-<style> 
-    .container { 
-        display:flex; 
-        justify-content: space-between; 
-    } 
-</style> 
-<div class="container"> 
-<button (click)="getEmployees()"class="btn btn-primary">Get Employees</button><br>
-<button (click)="goToAddEmployees()" class="btn btn-secondary">Go to Add Employee</button><br>
-
-<button (click)="gotoregister()"class="btn btn-primary">Register</button><br>
-<button (click)="gotologin()"class="btn btn-secondary">Login</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (employee of employees; track employee._id) {
+      <tr>
+        <th scope="row">{{ $index + 1 }}</th>
+        <td>{{ employee.firstName }}</td>
+        <td>{{ employee.lastName }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteEmployee(employee._id)">
+            DEL
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
 </div>
-<ul>
-    @for (employee of employees; track employee._id){
-        <li> {{employee.firstName}}{{employee.lastName}}
-            <button (click)="deleteEmployee(employee._id)">delete</button>     
-        </li>
-    }
-</ul>

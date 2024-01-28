@@ -1,5 +1,5 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './employees.component.html',
   styleUrl: './employees.component.scss'
 })
-export class EmployeesComponent {
+export class EmployeesComponent implements OnInit {
 
   employees: any = [];
 
@@ -16,8 +16,13 @@ export class EmployeesComponent {
     lastName: '',
   }
 
-  constructor(private http: HttpClient,
-    private router: Router) {
+  constructor(
+    private http: HttpClient,
+    private router: Router
+    ) {
+  }
+  ngOnInit(): void {
+    this.getEmployees(); 
   }
 
   getEmployees() {
@@ -56,7 +61,7 @@ export class EmployeesComponent {
     });
   }
   goToAddEmployees() {
-    this.router.navigate(['/add-employee']);
+    this.router.navigate(['/add-employees']);
   }
    gotoregister() {
     this.router.navigate(['/register']);
