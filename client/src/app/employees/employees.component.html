@@ -1,8 +1,9 @@
 
+<div class="m-4" style="display: flex;justify-content: end;">
+  <button class="float-end btn btn-primary" (click)="logout()">Logout</button>
+</div>
 <div class="m-4">
-  <button class="float-end btn btn-primary" (click)="goToAddEmployees()">
-    Go to Add employees
-  </button>
+  <button class="float-end btn btn-primary" (click)="goToAddEmployees()">Go to Add employees</button>
 @if(isLoading==false){
   <table class="table">
     <thead>

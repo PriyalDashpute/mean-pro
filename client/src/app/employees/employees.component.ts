@@ -74,5 +74,9 @@ export class EmployeesComponent implements OnInit {
 gotologin() {
   this.router.navigate(['/login']);
 }
+logout() {
+  localStorage.clear();
+  this.router.navigate(['/login'])
+}
 
 }

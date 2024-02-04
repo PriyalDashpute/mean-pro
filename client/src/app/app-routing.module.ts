@@ -5,14 +5,14 @@ import { AddEmployeesComponent } from './add-employee/add-employee.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
+import { authGuard, unauthGuard } from './auth.guard';
 export const routes: Routes = [
-
     { path: '', redirectTo: 'login', pathMatch: "full"},
-    { path: 'employees', component: EmployeesComponent },
-    {path:'add-employee',component: AddEmployeesComponent},
-     {path:'register',component:RegisterComponent},
-     {path:'login',component:LoginComponent},
-     {path:'edit-employee/:id',component:EditEmployeeComponent}
+    { path: 'employees', component: EmployeesComponent,canActivate :[authGuard] },
+    {path:'add-employee',component: AddEmployeesComponent,canActivate :[authGuard]},
+     {path:'register',component:RegisterComponent,canActivate :[unauthGuard]},
+     {path:'login',component:LoginComponent,canActivate :[unauthGuard]},
+     {path:'edit-employee/:id',component:EditEmployeeComponent,canActivate :[authGuard]}
 ];
 
 @NgModule({

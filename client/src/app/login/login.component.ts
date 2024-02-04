@@ -20,7 +20,7 @@ constructor(
 login(){
   this.http.post('http://localhost:3000/user/login', this.existingsUser).subscribe({
   next: (res: any) => {
-
+    localStorage.setItem('user', JSON.stringify(res));
     this.router.navigate(['employees']);
     this.existingsUser.password = '';
   },
