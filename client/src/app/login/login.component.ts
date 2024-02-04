@@ -21,7 +21,7 @@ login(){
   this.http.post('http://localhost:3000/user/login', this.existingsUser).subscribe({
   next: (res: any) => {
 
-    this.router.navigate(['']);
+    this.router.navigate(['employees']);
     this.existingsUser.password = '';
   },
   error: (err:any) => {

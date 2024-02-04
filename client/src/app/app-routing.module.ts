@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 export const routes: Routes = [
 
-    { path: '', redirectTo: 'employees', pathMatch: "full"},
+    { path: '', redirectTo: 'login', pathMatch: "full"},
     { path: 'employees', component: EmployeesComponent },
     {path:'add-employee',component: AddEmployeesComponent},
      {path:'register',component:RegisterComponent},
